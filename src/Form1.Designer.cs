@@ -666,7 +666,7 @@ namespace HeartBeatDetector
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "Form1";
-            this.Text = "Beat Tracker 1.0";
+            this.Text = "Heart Beat Detector";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
