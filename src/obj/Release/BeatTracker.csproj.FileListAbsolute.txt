@@ -1,0 +1,16 @@
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker.Form1.resources
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker.Properties.Resources.resources
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker.csproj.GenerateResource.Cache
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe.config
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe.manifest
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).application
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).pdb
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCap2CameraControl_v100.dll
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2Managed_v100.dll
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).TrustInfo.xml
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe.manifest
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).application
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).pdb
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker.csprojResolveAssemblyReference.cache

@@ -1,0 +1,46 @@
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\Release\FlyCapture2SimpleGUI_CSharp.exe.config
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\Release\FlyCapture2SimpleGUI_CSharp.exe
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\Release\FlyCapture2SimpleGUI_CSharp.pdb
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\Release\FlyCap2CameraControl_v100.dll
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\Release\FlyCapture2Managed_v100.dll
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\Release\FlyCapture2SimpleGUI_CSharp.Form1.resources
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\Release\FlyCapture2SimpleGUI_CSharp.Properties.Resources.resources
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\Release\FlyCapture2SimpleGUI_CSharp_2010.csproj.GenerateResource.Cache
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\Release\FlyCapture2SimpleGUI_CSharp.exe
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\Release\FlyCapture2SimpleGUI_CSharp.pdb
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2SimpleGUI_CSharp.exe.config
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.exe
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.pdb
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2SimpleGUI_CSharp.exe
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2SimpleGUI_CSharp.pdb
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCap2CameraControl_v100.dll
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2Managed_v100.dll
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.Form1.resources
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.Properties.Resources.resources
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp_2010.csproj.GenerateResource.Cache
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp_2010.csprojResolveAssemblyReference.cache
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2SimpleGUI_CSharp.exe.manifest
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2SimpleGUI_CSharp.application
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.TrustInfo.xml
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.exe.manifest
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.application
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian - Copy (9)-Good\bin\Release\FlyCapture2SimpleGUI_CSharp.exe.config
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian - Copy (9)-Good\obj\Release\FlyCapture2SimpleGUI_CSharp.exe
+C:\Program Files\Point Grey Research\FlyCapture2\src\FlyCapture2SimpleGUI_CSharpJulian - Copy (9)-Good\obj\Release\FlyCapture2SimpleGUI_CSharp.pdb
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCap2CameraControl_v100.dll
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\FlyCapture2Managed_v100.dll
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.Form1.resources
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp.Properties.Resources.resources
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp_2010.csproj.GenerateResource.Cache
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe.config
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe.manifest
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).application
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\bin\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).pdb
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\FlyCapture2SimpleGUI_CSharp_2010.csprojResolveAssemblyReference.cache
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).TrustInfo.xml
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe.manifest
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).application
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).exe
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker(FlyCapture2SimpleGUI_CSharp).pdb
+C:\Programs\BeatTracker\src\FlyCapture2SimpleGUI_CSharpJulian\obj\Release\BeatTracker.Properties.Resources.resources

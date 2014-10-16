@@ -1,0 +1,5 @@
+C:\Programs\BeatTracker\src\bin\Debug\HeartBeatDetector.exe.config
+C:\Programs\BeatTracker\src\obj\Debug\HeartBeatDetector.csprojResolveAssemblyReference.cache
+C:\Programs\BeatTracker\src\obj\Debug\HeartBeatDetector.Form1.resources
+C:\Programs\BeatTracker\src\obj\Debug\HeartBeatDetector.Properties.Resources.resources
+C:\Programs\BeatTracker\src\obj\Debug\HeartBeatDetector.csproj.GenerateResource.Cache

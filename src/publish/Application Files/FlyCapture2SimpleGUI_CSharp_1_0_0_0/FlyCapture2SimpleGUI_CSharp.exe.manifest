@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="FlyCapture2SimpleGUI_CSharp.exe" version="1.0.0.0" publicKeyToken="5088c3ea7840ed7c" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="FlyCap2.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="FlyCapture2SimpleGUI_CSharp" version="2.6.3.4" language="neutral" processorArchitecture="msil" />
+    <commandLine file="FlyCapture2SimpleGUI_CSharp.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+            If you want to change the Windows User Account Control level replace the 
+            requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel node will disable file and registry virtualization.
+            If you want to utilize File and Registry Virtualization for backward 
+            compatibility then delete the requestedExecutionLevel node.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlyCap2CameraControl_v100.dll" size="1517336">
+      <assemblyIdentity name="FlyCap2CameraControl_v100" version="2.6.3.4" publicKeyToken="5ABEEDA345E59824" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>HkNfG6V5hBqzvzfKB6uxVMoMDtI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlyCapture2Managed_v100.dll" size="282904">
+      <assemblyIdentity name="FlyCapture2Managed_v100" version="2.6.3.4" publicKeyToken="76C6583B4A4585F4" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>DU/eC+47CNfrAsMzcZZJalM0XLs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlyCapture2SimpleGUI_CSharp.exe" size="612352">
+      <assemblyIdentity name="FlyCapture2SimpleGUI_CSharp" version="2.6.3.4" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>903/2uDuJK31/H5/KnHT0n0VyN0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="FlyCap2.ico" size="291630">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Nepb3yN98AHqtX4/HG2uTeOWso8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="FlyCapture2SimpleGUI_CSharp.exe.config" size="927">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>bZQeha+aVFf7VP6SojPWmzOiTpM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of all Windows versions that this application is designed to work with. Windows will automatically select the most compatible environment.-->
+      <!-- If your application is designed to work with Windows 7, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=LAPTOPJP\Julian" issuerKeyHash="8d10b1c4c92a08882d8fab3a888e017fd4636416" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>qycQ8JQJQwV+SGczG3IWYx+4ngI=</DigestValue></Reference></SignedInfo><SignatureValue>n5gjZMLI3jQX0oAt3smJ0k3tBTrukzLprRv40l36ccvfj/wvt1oll6rxmBGfHXKIcSxR7hKtTbOjYwcsy1FCUZ0NTxVgCARzcY8PGCMOBviMiW5LRmrO4QnyTm6u9QV+q8ycLOnpIiRmCABXK+PfPs94NSTsyup/Hy7goAp9pxs=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>tdsqKNMR12g6hWdhXdKLBniDBdXLCSHKz5CVS/xeLaboQdFqyOMoamnKYG0YLjumk8eu/ITcpeJ9VZ8Vi1D+Wk8gdygj63ogcsjWxJgEQcw5+UkQmSLjmWkTUtgCOJ5Wyw6eRFOpek+mlVuL1XvoRDsv8aCiFoYxnTVD7JJXsIU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="029eb81f6316721b3367487e05430994f01027ab" Description="" Url=""><as:assemblyIdentity name="FlyCapture2SimpleGUI_CSharp.exe" version="1.0.0.0" publicKeyToken="5088c3ea7840ed7c" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LAPTOPJP\Julian</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>h4tU9l1AtM1OZDwbM3ey8PYoqfQ=</DigestValue></Reference></SignedInfo><SignatureValue>pZl9szAd5DRrBCKfko1/gpbrM7ZrNIiHWImEcsQDbkv0oQ7ft7ItwI5LVxrR0ECww+Gti/Hy/Ma7MS3TjSXF2mwqbN2JZBpwTT3FyKNV+9RsOHCz74Ce3VSbQSRp4mahyCZUoFx4OI8ZRB+zXBcu8h2PQbbPW6Og4Ee0wSCg2I4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tdsqKNMR12g6hWdhXdKLBniDBdXLCSHKz5CVS/xeLaboQdFqyOMoamnKYG0YLjumk8eu/ITcpeJ9VZ8Vi1D+Wk8gdygj63ogcsjWxJgEQcw5+UkQmSLjmWkTUtgCOJ5Wyw6eRFOpek+mlVuL1XvoRDsv8aCiFoYxnTVD7JJXsIU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQI+7lMrT3kbRPSYZUEPVoezANBgkqhkiG9w0BAQUFADApMScwJQYDVQQDHh4ATABBAFAAVABPAFAASgBQAFwASgB1AGwAaQBhAG4wHhcNMTQwOTExMTcwNjU0WhcNMTUwOTExMjMwNjU0WjApMScwJQYDVQQDHh4ATABBAFAAVABPAFAASgBQAFwASgB1AGwAaQBhAG4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALXbKijTEddoOoVnYV3SiwZ4gwXVywkhys+QlUv8Xi2m6EHRasjjKGppymBtGC47ppPHrvyE3KXifVWfFYtQ/lpPIHcoI+t6IHLI1sSYBEHMOflJEJki45lpE1LYAjieVssOnkRTqXpPppVbi9V76EQ7L/GgohaGMZ01Q+ySV7CFAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAW8XjrytyMvOkiXB0RhSy3xLNJ2Vw8+ClCMOemYH/cSS8hcgYkGwvdvNwBpBgqRNQg6SVn10qWu81FOFmf29JuYyD1GFS4m6Q8NU1BXubNF2OSjkLpAGT6wvOHwo2uvecWPYlzSnaK4hNldoaY1itE/lJ/SrwTMLRXCrFTeTv3RY=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

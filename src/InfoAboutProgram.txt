@@ -1,0 +1,2 @@
+﻿1.0  The average pixel value of the selecion is normalized to the average background pixel (where the background is a centered square whose width and height are a third of the width and height of the image.)
+	 The maximum is found by looking at the 5 previous images and seeing if the one is the middle is bigger.
