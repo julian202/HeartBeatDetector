@@ -19,6 +19,7 @@
 //=============================================================================
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,6 +60,8 @@ namespace HeartBeatDetector
         private Int32 sumBackground = new System.Int32();
         private double aveBackground = new System.Double();
         private int aveSum = new System.Int32();
+        private int pastAverage = new System.Int32();
+        private int aveSumCopyForGraph = new System.Int32();
         private int aveSumPrevious = new System.Int32();
         private int aveSumCopy = new System.Int32();
 
@@ -85,7 +88,9 @@ namespace HeartBeatDetector
         LockBitmap lockBitmap;
         Boolean ismax = false;
         int[] array = new int[] { 0, 0, 0,0,0 };
+        int[] longarray = new int[30]; // a heart cycle is a about 10 points.
         int maxInterval = 1;
+        int intervalSafetyPulse =2;
         string selection="(0,0)";
         string elapsedTime;
         string PulseElapsedTime;
@@ -96,6 +101,8 @@ namespace HeartBeatDetector
         int numSaved = 0;
         int saveCount = 0;
         int showCount = 0;
+        int[] graphArray = new int[40];
+        int[] graphMaxArray = new int[40];
         Boolean readyToRecordValues = false;
 
         public Form1()
@@ -161,10 +168,17 @@ namespace HeartBeatDetector
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("VS2013");
+            //MessageBox.Show("VS2013");
+
+            textBox1.Text = Properties.Settings.Default.mirrorAngleStep;
+            textBox2.Text= Properties.Settings.Default.mirrorAngle;
+            textBoxDCMotorTime.Text = Properties.Settings.Default.motorTime;
+            textBoxDCMotor2Time.Text = Properties.Settings.Default.motor2Time;
+            
+            
+
             Directory.CreateDirectory(savepath);
             Directory.CreateDirectory(savepath + "\\SavedMaxima\\");
-            //timer4sPulses.Start();
             PulseStopWatch.Start();
 
             comboBox1.Items.Clear();
@@ -233,11 +247,13 @@ namespace HeartBeatDetector
                 }
                 catch (FC2Exception ex)
                 {
-                    MessageBox.Show("Make sure you have connected a camera");
+                    //MessageBox.Show("Camera not detected. Make sure you have connected a camera");
+                    label14.Show();
+
                     Debug.WriteLine("Failed to load form successfully: " + ex.Message);
-                    Environment.ExitCode = -1;
-                    Application.Exit();
-                    return;
+                   // Environment.ExitCode = -1;
+                    //Application.Exit();
+                    //return;
                 }
 
 
@@ -253,6 +269,16 @@ namespace HeartBeatDetector
             }
 
             Show();
+
+            chart1.ChartAreas["ChartArea1"].AxisX.MajorGrid.Enabled = false;
+            chart1.ChartAreas["ChartArea1"].AxisY.MajorGrid.Enabled = false;
+           // chart1.ChartAreas[0].AxisY.
+            //chart1.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineColor = Color.Gray;
+            //chart1.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineColor = Color.Gray;
+            chart1.Series[0].BorderWidth = 3;
+            /*
+            if (checkBoxGraph.Checked) { timerGraph.Start(); }
+            else { timerGraph.Stop(); }*/
         }
 
         private void UpdateFormCaption(CameraInfo camInfo)
@@ -318,7 +344,7 @@ namespace HeartBeatDetector
                 {
                     if (checkBoxSendSignal.Checked)
                     {
-                        arduinoPin();
+                        arduinoPin("m");
                     }
                     buttonMax.BackColor = Color.Green;
                     maxInterval = (int)numericUpDown1.Value;
@@ -334,18 +360,27 @@ namespace HeartBeatDetector
             buttonMax.Refresh();
             //this.Refresh();
 
-            tsPulse = PulseStopWatch.Elapsed;
-            //elapsedTime = String.Format("{0:0.0}", (10 / tsPulse.TotalSeconds));  //hertz (10 images over their duration)
-            PulseElapsedTime = String.Format("{0:0}.{1:0}", tsPulse.Seconds, tsPulse.Milliseconds / 100);
-            TimeSinceMaxLabel.Text = PulseElapsedTime;
-            TimeSinceMaxLabel.Refresh();
-            if (tsPulse.Seconds >= 2)
+            if (checkBox4sPulses.Checked)
             {
-                arduinoPin();
-                if (CheckBoxRecordValues.Checked) FakePulse = true;
-                PulseCountLabel.Text = Convert.ToString((Convert.ToInt32(PulseCountLabel.Text) + 1));
-                PulseStopWatch.Restart();
+                tsPulse = PulseStopWatch.Elapsed;
+                //elapsedTime = String.Format("{0:0.0}", (10 / tsPulse.TotalSeconds));  //hertz (10 images over their duration)
+                PulseElapsedTime = String.Format("{0:0}.{1:0}", tsPulse.Seconds, tsPulse.Milliseconds / 100);
+                TimeSinceMaxLabel.Text = PulseElapsedTime;
+                TimeSinceMaxLabel.Refresh();
+                if (tsPulse.Seconds >= intervalSafetyPulse)
+                {
+                    arduinoPin("m");
+                    if (CheckBoxRecordValues.Checked) FakePulse = true;
+                    PulseCountLabel.Text = Convert.ToString((Convert.ToInt32(PulseCountLabel.Text) + 1));
+                    PulseStopWatch.Restart();
+                }
             }
+            if (checkBoxGraph.Checked )
+            {
+                myPlotGraph();
+            }
+            //MessageBox.Show("ok");
+            
         }
         private void StartGrabLoop()
 
@@ -429,6 +464,7 @@ namespace HeartBeatDetector
                 aveSum = 0;
                 if (CheckBoxAlgorithm2.Checked)
                 {
+                    /* //this was the previous alternative algorithm 
                     for (int y = ya; y < yb; y = y + 1)
                     {
                         for (int x = xa; x < xb; x = x + 1)
@@ -439,11 +475,12 @@ namespace HeartBeatDetector
                         aveSum = aveSum + Convert.ToInt32(1000*sumW / sum);
                     }
                     aveSum = aveSum / (yb - ya);
-                    lockBitmap.UnlockBits();
+                    lockBitmap.UnlockBits();*/
+
+
                 }
                 else
-                {
-                
+                {               
                     for (int y = ya; y < yb; y=y+1)
                     {
                         for (int x = xa; x < xb; x=x+1)
@@ -452,41 +489,106 @@ namespace HeartBeatDetector
                         }
                     }
                     sumBackground = 0;     
-                    for (int y = 160; y < 320; y = y + 3)
-                    {
-                        //TESTint = 0;
-                        for (int x = 214; x < 426; x = x + 3)
+                    if (checkBoxBackgroundCorrection.Checked){
+                        for (int y = 160; y < 320; y = y + 3)
                         {
-                           // TESTint = TESTint + 1;
-                            sumBackground = sumBackground + (lockBitmap.GetPixel(x, y).G + lockBitmap.GetPixel(x, y).R); //the .R selects the red component of the RGB color                         
+                            //TESTint = 0;
+                            for (int x = 214; x < 426; x = x + 3)
+                            {
+                                // TESTint = TESTint + 1;
+                                sumBackground = sumBackground + (lockBitmap.GetPixel(x, y).G + lockBitmap.GetPixel(x, y).R); //the .R selects the red component of the RGB color                         
+                            }
                         }
                     }
+                    
                     lockBitmap.UnlockBits();
                     if (((yb - ya) * (xb - xa)) != 0) ave = Convert.ToDouble(sum) / ((yb - ya) * (xb - xa));
-                    aveBackground = Convert.ToDouble(sumBackground) / (54 * 71);
+                    if (checkBoxBackgroundCorrection.Checked)
+                    {
+                        aveBackground = Convert.ToDouble(sumBackground) / (54 * 71);
+                    }
+                    else { aveBackground = 1; }
+                    
                     aveSum = Convert.ToInt32(((10000*ave / aveBackground) ));  
                 }
 
-                               
+
                 
 
                 if (checkBoxMax.Checked)
                 {
-                    array[0] = array[1];
-                    array[1] = array[2];
-                    array[2] = array[3];
-                    array[3] = array[4];
-                    array[4] = aveSum;
-                    if ((array[1] > array[0]) && (array[2] > array[1]) && (array[2] > array[3]) && (array[3] > array[4]))
+                    if (UseSensitiveAlgorithmCheckbox.Checked)
                     {
-                        ismax = true;           
-                        if (checkBoxSaveMax.Checked)
+                        for (int i = 1; i < longarray.Length; i++) longarray[i - 1] = longarray[i];
+                        longarray[longarray.Length-1] = aveSum;
+                        pastAverage = Convert.ToInt32(longarray.Average());
+
+                        if (radioButtonUp.Checked)
                         {
-                            newimage.Save(savepath + "\\SavedMaxima\\" + saveCount.ToString("000") + ".bmp");
-                            saveCount++;
+                            if ((aveSum > pastAverage) & (aveSumPrevious < pastAverage))
+                            {
+                                ismax = true;
+                                if (checkBoxSaveMax.Checked)
+                                {
+                                    newimage.Save(savepath + "\\SavedMaxima\\" + saveCount.ToString("000") + ".bmp");
+                                    saveCount++;
+                                }
+                            }
+                            else ismax = false;
                         }
+                        else if (radioButtonDown.Checked)
+                        {
+                            if ((aveSum < pastAverage) & (aveSumPrevious > pastAverage))
+                            {
+                                ismax = true;
+                                if (checkBoxSaveMax.Checked)
+                                {
+                                    newimage.Save(savepath + "\\SavedMaxima\\" + saveCount.ToString("000") + ".bmp");
+                                    saveCount++;
+                                }
+                            }
+                            else ismax = false;
+                        }
+                        
                     }
-                    else ismax = false;
+                    else
+                    {                  
+                        array[0] = array[1];
+                        array[1] = array[2];
+                        array[2] = array[3];
+                        array[3] = array[4];
+                        array[4] = aveSum;
+                        if (checkBoxTriggerOnMinimum.Checked)
+                        {
+                            if ((array[1] < array[0]) && (array[2] < array[1]) && (array[2] < array[3]) && (array[3] < array[4]))
+                            {
+                                ismax = true;
+                                if (checkBoxSaveMax.Checked)
+                                {
+                                    newimage.Save(savepath + "\\SavedMaxima\\" + saveCount.ToString("000") + ".bmp");
+                                    saveCount++;
+                                }
+                            }
+                            else ismax = false;
+
+                        }
+                        else
+                        {
+                            if ((array[1] > array[0]) && (array[2] > array[1]) && (array[2] > array[3]) && (array[3] > array[4]))
+                            {
+                                ismax = true;
+                                if (checkBoxSaveMax.Checked)
+                                {
+                                    newimage.Save(savepath + "\\SavedMaxima\\" + saveCount.ToString("000") + ".bmp");
+                                    saveCount++;
+                                }
+                            }
+                            else ismax = false;
+
+                        }
+
+                        
+                    }
                 }
                 else ismax = false;
 
@@ -494,8 +596,8 @@ namespace HeartBeatDetector
                 {
                     if (ismax)
                     {
-                        if (CheckBoxAlgorithm2.Checked ) aveSumCopy = aveSum + 1500;  //this is just to highlight the max value in a graph.
-                        else aveSumCopy = aveSum + 700;
+                        if (CheckBoxAlgorithm2.Checked ) aveSumCopy = aveSum + 0;   //+1500; to highlight the max value in a graph.
+                        else aveSumCopy = aveSum + 0; // 700;
                     }
                     else aveSumCopy = aveSum; 
                     using (System.IO.StreamWriter file = new System.IO.StreamWriter(@savepath+"values.txt", true))
@@ -515,6 +617,9 @@ namespace HeartBeatDetector
                         file.WriteLine(array[0]+" " +array[1]+" " +array[2]+" " +array[3]+" " +array[4]);
                     }*/
                 }
+                     
+
+
                              
                 if (My_count ==0) stopWatch.Start();
             
@@ -536,7 +641,15 @@ namespace HeartBeatDetector
 
         private void toolStripButtonStart_Click(object sender, EventArgs e)
         {
-            m_camera.StartCapture();
+            try
+            {
+                m_camera.StartCapture();
+            }
+            catch
+            {
+                //MessageBox.Show("Camera not detected. Make sure you have connected a camera");
+            }
+           
 
             m_grabImages = true;
 
@@ -637,18 +750,19 @@ namespace HeartBeatDetector
             }
         }
 
-        private void arduinoPin()
+        private void arduinoPin(string value)
         {
             try {
-                /*serialPort1.Close();
+                serialPort1.Close();
                 serialPort1.Open();
-                Thread.Sleep(100);*/
-                serialPort1.Write("m");
+                Thread.Sleep(100);
+                serialPort1.Write(value);
 
             }
             catch {
-                stopCaptureLoop();
-                MessageBox.Show("Arduino Board has been disconnected or you have selected the wrong com port!");
+                //stopCaptureLoop();
+                //MessageBox.Show("Arduino Board not detected. It either has been disconnected or you have selected the wrong com port!");
+                label10.Show();
             }
         }
 
@@ -672,7 +786,7 @@ namespace HeartBeatDetector
 
         private void buttonMax_Click(object sender, EventArgs e)
         {
-            arduinoPin();
+            arduinoPin("m");
             buttonMax.BackColor = Color.Green;
         }
 
@@ -777,43 +891,17 @@ namespace HeartBeatDetector
 
         private void checkBox4sPulses_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox4sPulses.Checked)
-            {
-                arduinoPin();
-                //timer4sPulses.Start();
-
-            }
-            else
-            {
-                //timer4sPulses.Stop();
-            }
-
-
-        }
-
-        private void timer4sPulses_Tick(object sender, EventArgs e)
-        {           
-            tsPulse = PulseStopWatch.Elapsed;
-            //elapsedTime = String.Format("{0:0.0}", (10 / tsPulse.TotalSeconds));  //hertz (10 images over their duration)
-            PulseElapsedTime = String.Format("{0:0}.{1:0}", tsPulse.Seconds, tsPulse.Milliseconds / 100);
-            TimeSinceMaxLabel.Text = PulseElapsedTime;
-            TimeSinceMaxLabel.Refresh();
-            if (tsPulse.Seconds >= 2)
-            {
-                arduinoPin();
-                if (CheckBoxRecordValues.Checked) FakePulse = true;
-                PulseCountLabel.Text = Convert.ToString((Convert.ToInt32(PulseCountLabel.Text) + 1));
-                PulseStopWatch.Restart();
-            }
-        }
+        
+        }      
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //timer4sPulses.Interval = Convert.ToInt32(textBoxPulseInterval.Text)*1000;
-
-        }
-
-     
+            try
+            {
+                intervalSafetyPulse = Convert.ToInt32(textBoxPulseInterval.Text);
+            }
+            catch { }
+        }  
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
@@ -832,11 +920,215 @@ namespace HeartBeatDetector
             PulseCountLabel.Text = "0";
         }
 
+        
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            float newvalue = Convert.ToSingle(textBox2.Text) + Convert.ToSingle(textBox1.Text);
+            if ((newvalue>=3)&&(newvalue<167)){
+                textBox2.Text = Convert.ToString(newvalue);
+                arduinoPin("zf" + textBox2.Text);
+            }          
+        }
+       
+        private void button6_Click(object sender, EventArgs e)
+        {
+            float newvalue = Convert.ToSingle(textBox2.Text) - Convert.ToSingle(textBox1.Text);
+            if ((newvalue >= 3) && (newvalue < 167))            {
+                textBox2.Text = Convert.ToString(newvalue);
+                arduinoPin("zb" + textBox2.Text);
+            }    
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.mirrorAngleStep = textBox1.Text;
+                Properties.Settings.Default.Save();
+            }
+            catch { }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            float newvalue = Convert.ToSingle(textBox2.Text);
+            if ((newvalue >= 3) && (newvalue < 167))
+            {
+                //textBox2.Text = Convert.ToString(newvalue);
+                arduinoPin("zb" + textBox2.Text);
+            }    
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //arduinoPin("g" +"b" + textBox2.Text);
+            arduinoPin("t" + "b" + textBoxDCMotorTime.Text);
+            
+            
+            //timerDCMotor.Interval = Convert.ToInt32(textBoxDCMotorTime.Text) * 1;      
+            //timerDCMotor.Start();
+           
+            
+            //System.Threading.Thread.Sleep(Convert.ToInt32(textBoxDCMotorTime.Text));
+            //stopDCMotor();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            arduinoPin("t" + "f" + textBoxDCMotorTime.Text);
+
+
+            //timerDCMotor.Interval = Convert.ToInt32(textBoxDCMotorTime.Text)  * 1;
+            //timerDCMotor.Start();
+
+
+
+            //System.Threading.Thread.Sleep(Convert.ToInt32(textBoxDCMotorTime.Text));
+            //stopDCMotor();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            stopDCMotor();
+        }
+
+        private void stopDCMotor()
+        {
+            arduinoPin("s" + "s" + textBox2.Text);
+        }
+
+        private void timerDCMotor_Tick(object sender, EventArgs e)
+        {
+            timerDCMotor.Stop();
+            stopDCMotor();
+        }
+
+
+        private void plotMyGraph()
+        {
+            Array.Copy(graphArray, 1, graphArray, 0, graphArray.Length - 1);
+            Array.Copy(graphMaxArray, 1, graphMaxArray, 0, graphMaxArray.Length - 1);
+            chart1.Series["Series1"].Points.Clear();
+            chart1.Series["Series2"].Points.Clear();
+            for (int i = 0; i < graphArray.Length; i++)
+            {
+                chart1.Series["Series1"].Points.AddY(graphArray[i]);
+                chart1.Series["Series2"].Points.AddY(graphMaxArray[i]);
+            }
+            chart1.ChartAreas[0].AxisY.Minimum = Convert.ToInt32(graphArray.Average()* 5/ 6);
+            
+
+        }
+
+        private void myPlotGraph()
+        {
+
+            if (aveSum == 0)
+            { //I'm not sure why this is necessary to avoid 0 showing up sometimes in the graph.
+                aveSum = aveSumCopyForGraph;
+                //MessageBox.Show(aveSumCopy.ToString()); 
+            }
+            graphArray[graphArray.Length - 1] = aveSum;
+            if (ismax)
+            {
+                graphMaxArray[graphMaxArray.Length - 3] = aveSum;
+                //MessageBox.Show("m");
+            }
+
+
+            plotMyGraph();
+            aveSumCopyForGraph = aveSum;
+        }
+
+        private void timerGraph_Tick(object sender, EventArgs e)
+        {
+
+            if (aveSum ==0) { //I'm not sure why this is necessary to avoid 0 showing up sometimes in the graph.
+                aveSum=aveSumCopyForGraph;
+                //MessageBox.Show(aveSumCopy.ToString()); 
+            }
+            graphArray[graphArray.Length-1] = aveSum;
+            if (ismax) {
+                graphMaxArray[graphMaxArray.Length - 3] = aveSum;
+                //MessageBox.Show("m");
+            }
+            
+
+            plotMyGraph();
+            aveSumCopyForGraph = aveSum;
+        }
+
+        private void checkBoxGraph_CheckedChanged(object sender, EventArgs e)
+        {
+            /*
+            if (checkBoxGraph.Checked) { timerGraph.Start(); }
+            else { timerGraph.Stop(); }*/
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.mirrorAngle = textBox2.Text;
+                Properties.Settings.Default.Save();
+            }
+            catch { }
+        }
+
+        private void textBoxDCMotorTime_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.motorTime = textBoxDCMotorTime.Text;
+                Properties.Settings.Default.Save();
+            }
+            catch { }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            arduinoPin("p" + "f" + textBoxDCMotor2Time.Text);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            arduinoPin("p" + "b" + textBoxDCMotor2Time.Text);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            stopDCMotor();
+        }
+
+        private void textBoxDCMotor2Time_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.motor2Time = textBoxDCMotor2Time.Text;
+                Properties.Settings.Default.Save();
+            }
+            catch { }
+        }
+
+     
+
+
+        
+
+
+        
+
     
         // MessageBox.Show("hi");
         //Region myRegion = new Region(myPath);
         //e.Graphics.DrawRectangle(Pens.Black, cloneRect2);
     }
+
+
+
+   
 
     public class LockBitmap
     {

@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HeartBeatDetector.exe" size="622080">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HeartBeatDetector.exe" size="632760">
       <assemblyIdentity name="HeartBeatDetector" version="2.6.3.4" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>pujK+qz26eMjiXsJ2CunN+q49wA=</dsig:DigestValue>
+        <dsig:DigestValue>1LTVNEATBYozwJxEsQBOeqK0efE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -87,13 +87,13 @@
       <dsig:DigestValue>Nepb3yN98AHqtX4/HG2uTeOWso8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="HeartBeatDetector.exe.config" size="927">
+  <file name="HeartBeatDetector.exe.config" size="1896">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>bZQeha+aVFf7VP6SojPWmzOiTpM=</dsig:DigestValue>
+      <dsig:DigestValue>PEZJW2eDInB/myQcxI8Yr1FOxXE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="InfoAboutProgram.txt" size="317">

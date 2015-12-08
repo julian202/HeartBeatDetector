@@ -1,0 +1,16 @@
+S:\Programs\HeartBeatDetector\src\bin\x64\Release\HeartBeatDetector.exe.config
+S:\Programs\HeartBeatDetector\src\bin\x64\Release\HeartBeatDetector.exe.manifest
+S:\Programs\HeartBeatDetector\src\bin\x64\Release\HeartBeatDetector.application
+S:\Programs\HeartBeatDetector\src\bin\x64\Release\HeartBeatDetector.exe
+S:\Programs\HeartBeatDetector\src\bin\x64\Release\HeartBeatDetector.pdb
+S:\Programs\HeartBeatDetector\src\bin\x64\Release\FlyCap2CameraControl_v100.dll
+S:\Programs\HeartBeatDetector\src\bin\x64\Release\FlyCapture2Managed_v100.dll
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.csprojResolveAssemblyReference.cache
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.Form1.resources
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.Properties.Resources.resources
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.csproj.GenerateResource.Cache
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.TrustInfo.xml
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.exe.manifest
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.application
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.exe
+S:\Programs\HeartBeatDetector\src\obj\x64\Release\HeartBeatDetector.pdb
